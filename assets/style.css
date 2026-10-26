@@ -1,0 +1,105 @@
+/* English Lab — mobile-first. Base = móvil; @media (min-width) amplía para tablet/escritorio. */
+:root{--bg:#0d1020;--panel:rgba(255,255,255,.07);--line:rgba(255,255,255,.14);--text:#eef0ff;--muted:#a3a9cc;
+ --accent:#6c8cff;--ok:#4fd1a5;--bad:#ff7a90;--tap:48px;--safe-b:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;color:var(--text);font-size:16px;line-height:1.45;
+ background:radial-gradient(900px 500px at 10% -10%,#26307a66,transparent),radial-gradient(700px 400px at 100% 0,#7a2a8a44,transparent),var(--bg);
+ min-height:100vh;min-height:100dvh;overflow-x:hidden}
+button,input,textarea{font-family:inherit;touch-action:manipulation}
+.app{max-width:760px;margin:0 auto;padding:14px 14px calc(110px + var(--safe-b))}
+.brand{display:flex;align-items:baseline;gap:10px;margin-bottom:10px}
+.brand h1{margin:0;font-size:24px;background:linear-gradient(90deg,#8fa6ff,#d28bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:20px;margin:.4em 0}h3{font-size:18px;margin:.3em 0}h4{margin:.2em 0;font-size:17px}
+p{margin:.4em 0}.muted{color:var(--muted)}.small{font-size:14px}.grow{flex:1}
+
+/* tarjetas */
+.grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+.card{--accent:#6c8cff;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:18px;padding:16px;
+ backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 8px 30px #0005;animation:rise .3s ease}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.module-icon{font-size:30px}
+.clamp{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.review-card{display:flex;flex-direction:column;gap:12px;border-top-color:#d28bff;margin-bottom:4px}
+.module-card .btn{width:100%;margin-top:8px}
+.review-card .btn{width:100%}
+
+/* botones: objetivo táctil >= 48px */
+.btn{min-height:var(--tap);border:0;border-radius:14px;padding:12px 18px;font-size:16px;font-weight:600;color:#fff;cursor:pointer;
+ transition:transform .12s,filter .12s;user-select:none;-webkit-user-select:none}
+.btn:active:not(:disabled){transform:scale(.97);filter:brightness(1.15)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn-primary{background:linear-gradient(135deg,#6c8cff,#8a6cff)}
+.btn-accent{background:linear-gradient(135deg,#4fd1a5,#3aa7d8)}
+.btn-ghost{background:var(--panel);border:1px solid var(--line)}
+
+/* barra de acciones fija abajo (alcance del pulgar) */
+.actionbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;gap:10px;justify-content:center;
+ padding:10px 14px calc(10px + var(--safe-b));background:linear-gradient(180deg,#0d102000,#0d1020ee 35%,#0d1020);
+ backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.actionbar .btn{flex:1;max-width:360px}
+
+.topbar{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.topbar .btn{min-width:var(--tap);padding:10px 14px}
+.topbar-title{margin:0;font-size:18px;flex:1;min-width:0}
+.chip{display:inline-block;padding:5px 12px;border-radius:99px;background:var(--panel);border:1px solid var(--line);color:var(--muted);font-size:13px;margin:4px 6px 6px 0}
+.topbar .chip{margin:0}
+.dots{display:flex;gap:6px;margin:6px 0 12px}.dot{flex:1;max-width:40px;height:6px;border-radius:9px;background:var(--line)}
+.dot.done{background:var(--ok)}.dot.active{background:var(--accent)}
+
+/* teoría */
+.analogy{font-size:19px;line-height:1.6}
+.line{display:flex;gap:10px;align-items:baseline;margin:10px 0;font-size:17px}
+.tag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:7px;background:#ffffff1c;flex:none}
+.tag-en{background:#6c8cff55}.tag-why{background:#f7b95555;white-space:nowrap}
+.why{margin-top:12px;padding:12px;border-radius:12px;background:#0003;line-height:1.55;display:flex;flex-direction:column;gap:8px;align-items:flex-start;font-size:15px}
+.excerpt{white-space:pre-wrap;word-break:break-word;font-family:inherit;line-height:1.5;background:#0003;padding:12px;border-radius:12px;max-height:50vh;overflow:auto;font-size:14px;-webkit-overflow-scrolling:touch}
+
+/* quiz */
+.bar{height:6px;background:var(--line);border-radius:9px;overflow:hidden;margin-bottom:12px}
+.bar-fill{height:100%;background:linear-gradient(90deg,#6c8cff,#4fd1a5);transition:width .4s}
+.prompt{font-size:19px;line-height:1.45;margin:6px 0 14px}
+.built-line{min-height:56px;padding:10px;border:2px dashed var(--line);border-radius:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bank{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.token{min-height:44px;border:1px solid var(--line);background:#ffffff16;color:var(--text);padding:8px 14px;border-radius:12px;font-size:16px;cursor:pointer}
+.token:active:not(:disabled){background:#6c8cff55;transform:scale(.96)}
+.token:disabled{opacity:.25}.token.built{background:#6c8cff55;min-height:40px;display:inline-flex;align-items:center}
+.tools{display:flex;gap:10px}.tools .btn{flex:1}
+
+.cloze{font-size:19px;line-height:2}
+.blank{display:inline-block;min-width:80px;border-bottom:2px solid var(--accent);text-align:center;color:var(--accent);font-weight:700;padding:0 6px}
+/* 16px mínimo en inputs: evita el zoom automático de iOS al enfocar */
+.gap{width:9em;max-width:100%;min-height:44px;background:#0005;border:1px solid var(--line);border-bottom:2px solid var(--accent);color:var(--text);font-size:18px;padding:6px 10px;text-align:center;outline:none;border-radius:10px}
+.textarea{width:100%;min-height:110px;background:#0005;border:1px solid var(--line);border-radius:12px;color:var(--text);padding:12px;font-size:16px;resize:vertical}
+
+.opts{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
+.opt{min-height:var(--tap);text-align:left;padding:12px 16px;border:1px solid var(--line);border-radius:14px;background:#ffffff10;color:var(--text);font-size:17px;cursor:pointer;transition:background .12s,border-color .12s}
+.opt:active:not(:disabled){background:#6c8cff44}
+.opt.selected{background:#6c8cff44;border-color:var(--accent);box-shadow:0 0 0 2px #6c8cff55}
+.opt:disabled{opacity:.35}.opt.selected:disabled{opacity:.9}
+
+.match-rows{display:flex;flex-direction:column;gap:10px;margin:10px 0 14px}
+.match-row{display:flex;flex-direction:column;gap:6px;text-align:left;padding:12px;border-radius:14px;border:1px solid var(--line);background:#ffffff0c;color:var(--text);font-size:15px;min-height:var(--tap);cursor:pointer}
+.match-row:disabled{opacity:1;cursor:default}
+.match-es{display:block;color:var(--muted);line-height:1.4}
+.match-slot{display:block;padding:8px 10px;border-radius:10px;border:2px dashed var(--line);font-size:16px;color:var(--muted)}
+.match-slot.filled{border:2px solid var(--accent);background:#6c8cff33;color:var(--text);font-weight:600}
+.match-slot.current{border-color:var(--ok);color:var(--ok)}
+
+.feedback{margin-top:16px;padding:14px;border-radius:14px;animation:rise .25s}
+.feedback.ok{background:#4fd1a522;border:1px solid #4fd1a566}.feedback.bad{background:#ff7a9022;border:1px solid #ff7a9066}
+.model{font-weight:600;word-break:break-word}.why-text{line-height:1.55;white-space:pre-line;color:#dfe2ff;font-size:15px}
+.score{font-size:64px;font-weight:800;background:linear-gradient(90deg,#4fd1a5,#6c8cff);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1}
+.rows .row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+
+/* tablet / escritorio */
+@media (min-width:700px){
+ .app{padding:28px 20px 120px}.brand h1{font-size:28px}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .card{padding:22px}.prompt{font-size:21px}.review-card{flex-direction:row;justify-content:space-between;align-items:center}
+ .review-card .btn{width:auto}.why{flex-direction:row}
+ .opts{grid-template-columns:repeat(2,1fr)}
+ .match-row{flex-direction:row;align-items:center}.match-es{flex:1}.match-slot{flex:1.2}
+ .btn:hover:not(:disabled){filter:brightness(1.12)}.token:hover:not(:disabled),.opt:hover:not(:disabled){background:#6c8cff44}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
